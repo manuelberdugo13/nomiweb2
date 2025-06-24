@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'login',
     'payroll',
     
+    'common',
+    
     
 ]
 

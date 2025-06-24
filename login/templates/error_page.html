@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+        <link href="{% static 'plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+        <link rel="icon" href="{% static 'img/logonomiweb.ico' %}" type="image/x-icon">
+    </head>
+    <body id="kt_body" class="app-blank">
+        <script>
+            var defaultThemeMode = "light";
+            var themeMode;
+            if (document.documentElement) {
+                if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
+                    themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
+                } else {
+                    if (localStorage.getItem("data-bs-theme") !== null) {
+                        themeMode = localStorage.getItem("data-bs-theme");
+                    } else {
+                        themeMode = defaultThemeMode;
+                    }
+                }
+                if (themeMode === "system") {
+                    themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                }
+                document.documentElement.setAttribute("data-bs-theme", themeMode);
+            }
+        </script>
+        <div class="d-flex flex-column flex-root" id="kt_app_root">
+            <div class="d-flex flex-column flex-center flex-column-fluid p-10">
+                <img src="{% static 'media/illustrations/unitedpalms-1/18.png' %}" alt="Error 404" class="mw-100 mb-10 h-lg-450px">
+                <h1 class="fw-semibold mb-10" style="color: #A3A3C7">¡Vaya! Página no encontrada</h1>
+                <p style="font-size: 18px; color: #6c757d;">
+                    Bueno, bueno... parece que alguien está perdido. ¿Qué hiciste, pulsaste todos los botones a lo loco? <br>
+                    Esto es un logro digno de estudio, porque ni nosotros sabemos cómo llegaste aquí. 👏 <br>
+                    Pero no te preocupes, hasta los mejores exploradores se pierden... a veces. 😜
+                </p>
+                <a href="{% url 'login:logout' %}" class="btn btn-primary">Regresar al Inicio</a>
+            </div>
+        </div>
+        <script src="{% static 'plugins/global/plugins.bundle.js' %}"></script>
+        <script src="{% static 'js/scripts.bundle.js' %}"></script>
+    </body>
+</html>
