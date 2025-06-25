@@ -2,7 +2,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% load i18n %}
-{% load account socialaccount %}
+
 
 
 {% block content %}
@@ -25,7 +25,7 @@
                 {% crispy form %}
             </div>
             <div data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="right" title="Le enviaremos un correo electrónico con instrucciones para restablecer su contraseña.">
-                <a href="{% url 'login:reset' %}" class="d-flex justify-content-center align-items-center text-success">Restablecer la contraseña</a>
+                <a href="" class="d-flex justify-content-center align-items-center text-success">Restablecer la contraseña</a>
             </div>
 
             <div class="separator separator-content border-success my-4"> <!-- Ajusta el margen -->
@@ -33,7 +33,7 @@
             </div>
 
             <div class="btn-group my-3 mx-2" role="group" aria-label="Basic example">
-                <a href="{% provider_login_url 'google' auth_params='prompt=select_account' process='login' %}" class="btn btn-icon btn-light-google mx-2" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="top" title="Iniciar sesión con Google">
+                <a href="" class="btn btn-icon btn-light-google mx-2" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="top" title="Iniciar sesión con Google">
                     <i class="fab fa-google fs-4"></i>
                 </a>
                 <a href="#" class="btn btn-icon btn-light-twitter mx-2" data-bs-toggle="tooltip" data-bs-custom-class="tooltip-inverse" data-bs-placement="top" title="Oops... microsoft  aún está tomando su café, funcionalidad no disponible por ahora.">

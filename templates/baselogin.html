@@ -1,0 +1,89 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block head_title %}
+        {% endblock head_title %}
+    </title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+    <!--end::Fonts-->
+    <!--begin::Vendor Stylesheets(used for this page only)-->
+    <link href="{% static 'plugins/custom/datatables/datatables.bundle.css' %}" rel="stylesheet" type="text/css" />
+    <!--end::Vendor Stylesheets-->
+    <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+    <link href="{% static 'plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+    
+    <link href="{% static 'css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+
+    <link rel="icon" href="{% static 'img/logonomiweb.ico' %}" type="image/x-icon">
+    <style>
+        .asteriskField {
+            display: none !important;
+        }
+        
+        {% block css %}
+        {% endblock %}
+    </style>
+    
+</head>
+<body id="kt_body" class="app-default" >
+        
+    {% block content %}
+        <p>este es un texto de prueba </p>
+    {% endblock %}
+        
+        
+    
+
+<!--begin::Global Javascript Bundle(mandatory for all pages)-->
+<script src="{% static 'plugins/global/plugins.bundle.js' %}"></script>
+<script src="{% static 'js/scripts.bundle.js' %}"></script>
+<!--end::Global Javascript Bundle-->
+<!--begin::Vendors Javascript(used for this page only)-->
+<script src="{% static 'plugins/custom/datatables/datatables.bundle.js' %}"></script>
+<!--end::Vendors Javascript-->
+<!--begin::Custom Javascript(used for this page only)-->
+<script src="{% static 'js/widgets.bundle.js' %}"></script>
+<script src="{% static 'js/custom/widgets.js' %}"></script>
+<script src="{% static 'js/custom/apps/chat/chat.js' %}"></script>
+<script src="{% static 'js/custom/utilities/modals/upgrade-plan.js' %}"></script>
+<script src="{% static 'js/custom/utilities/modals/create-account.js' %}"></script>
+<script src="{% static 'js/custom/utilities/modals/create-app.js' %}"></script>
+<script src="{% static 'js/custom/utilities/modals/users-search.js' %}"></script>
+<!--end::Custom Javascript-->
+
+<!--end::Javascript-->
+{% block js %}{% endblock %}
+<script>
+{% if messages %}
+    {% for message in messages %}
+        Swal.fire({
+            text: "{{ message }}",
+            icon: "{{message.tags}}",
+            showConfirmButton: true,
+            confirmButtonText: "Ok",
+            customClass: {
+                confirmButton: "btn btn-primary"
+            },
+            willOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer);
+                toast.addEventListener('mouseleave', Swal.resumeTimer);
+            }
+        });
+    {% endfor %}
+{% endif %}
+</script>
+
+
+
+
+</body>
+</html>
